@@ -1,4 +1,4 @@
-1. type alias আর type interface হল TypeSctipt এর টাইপ সেইপ ডিফাইন করার একটি পন্থা। type alias আর type interface কাজ প্রায় একই হলে এদের ব্যবহারে কিছুটা ভিন্নতা রয়েছে। যেমন type alias সব ধরনের অর্থাৎ Primitive এবং Non Primitive ডাটা টাইপ ডিফাইন করতে পারলেও type interface শুধুমাত্র ডাটা টাইপ ডিফাইন করতে পারে। type alias union(|) ব্যবহার করা যায় যা type interface এর ক্ষেত্রে ব্যবহার করা যাই না। type interface এ টাইপ ডিফাইন করা সময় object এর মত করে ডিফাইন করতে হয়। নিচে কয়েকটি উদাহারণ দেওয়া হল।
+1. type alias আর type interface হল TypeSctipt এর টাইপ সেইপ ডিফাইন করার একটি পন্থা। type alias আর type interface কাজ প্রায় একই হলে এদের ব্যবহারে কিছুটা ভিন্নতা রয়েছে। যেমন type alias সব ধরনের অর্থাৎ Primitive এবং Non Primitive ডাটা টাইপ ডিফাইন করতে পারলেও type interface শুধুমাত্র non-primitive ডাটা টাইপ ডিফাইন করতে পারে। type alias union(|) ব্যবহার করা যায় যা type interface এর ক্ষেত্রে ব্যবহার করা যাই না। type interface এ টাইপ ডিফাইন করা সময় object এর মত করে ডিফাইন করতে হয়। নিচে কয়েকটি উদাহারণ দেওয়া হল।
 
 ---->type alias<----
 
@@ -52,7 +52,7 @@ data = { a: 1 };
 
 unknown টাইপ তখনই ব্যবহৃত হয় যখন কি ধরনের ডাটা টাইপ আসবে সেটা নিশ্চিত হতে না পারে। এটি রানটাইমে গিয়ে বুঝা যায় যে কোন ধরনের ডাটা আসবে এবং সে অনুযায়ী validation or type narrowing এর মাধ্যমে প্রত্যাশিত কাজ করে নিতে হয়।
 
-function logValue(value: unknown): void {
+function logValue(value: unknown) {
 if (typeof value === "string") {
 console.log("String:", value.toUpperCase());
 } else if (typeof value === "number") {
@@ -66,10 +66,9 @@ console.log("Other type:", value);
 
 <-------usecase------>
 
-logValue("hello"); // String: HELLO
-logValue(42); // Number: 42.00
-logValue(true); // Boolean: TRUE
-logValue({ key: 1 }); // Other type: [object Object]
+logValue("hello"); 
+logValue(42); 
+logValue(true); 
 
 আর never টাইপ হচ্ছে যেটা কখনওই return করবে না।
 
